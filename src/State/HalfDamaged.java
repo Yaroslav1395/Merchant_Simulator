@@ -13,4 +13,9 @@ public class HalfDamaged extends State {
     public void sellProduct() {
         super.getProduct().setPrice(getProduct().getPrice() * Quality.HALF_DAMAGED.getCoefficient());
     }
+
+    @Override
+    public void lowerTheQuality() {
+        super.getProduct().setStateQuality(new Bad(super.getProduct()));
+    }
 }

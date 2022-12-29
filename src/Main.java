@@ -1,5 +1,6 @@
 import Dealer.Dealer;
 import Enums.Quality;
+import Enums.Towns;
 import Products.Product;
 import Store.Store;
 
@@ -10,9 +11,6 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Dealer dealer = new Dealer();
-        dealer.buyProducts();
-        dealer.getProducts().get(0).getStateQuality().sellProduct();
-        System.out.println(dealer.getProducts().get(0));
+
     }
 }

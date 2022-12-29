@@ -12,4 +12,9 @@ public class Trash extends State{
     public void sellProduct() {
         super.getProduct().setPrice(getProduct().getPrice() * Quality.TRASH.getCoefficient());
     }
+
+    @Override
+    public void lowerTheQuality() {
+
+    }
 }

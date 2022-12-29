@@ -11,16 +11,15 @@ import java.util.Random;
 
 public class Dealer {
     private int loadCapacity;
-    private int speed;
-    private int money;
+    private int movePoints;
+    private double money;
     private List<Product> products = new ArrayList<>();
-
     private Towns destination;
     private final Random random = new Random();
 
     public Dealer() {
         this.loadCapacity = 300;
-        this.speed = random.nextInt(3) + 2;
+        this.movePoints = random.nextInt(5) + 1;
         this.money = random.nextInt(15000) + 10000;
         this.destination = Towns.values()[random.nextInt(6)];
         this.destination.setDistanceToCity(random.nextInt(100) + 50);
@@ -35,9 +34,32 @@ public class Dealer {
         this.products = products;
     }
 
+    public int getSpeed() {
+        return movePoints;
+    }
+
+    public void setSpeed(int speed) {
+        this.movePoints = speed;
+    }
+
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
+    }
+
+    public Towns getDestination() {
+        return destination;
+    }
+
+    public void setDestination(Towns destination) {
+        this.destination = destination;
+    }
+
     //---------------------Заполнение телеги продуктами-----------------------------------
-    public void buyProducts(){
-        Store store = new Store();
+    public void buyProducts(Store store){
         boolean isFull = false;
         while (!isFull){
             Product product = store.getProducts().get(random.nextInt(store.getProducts().size()));

@@ -12,4 +12,9 @@ public class Bad extends State{
     public void sellProduct() {
         super.getProduct().setPrice(getProduct().getPrice() * Quality.BAD.getCoefficient());
     }
+
+    @Override
+    public void lowerTheQuality() {
+        super.getProduct().setStateQuality(new Trash(super.getProduct()));
+    }
 }
