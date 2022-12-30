@@ -15,6 +15,8 @@ public class Dealer {
     private double money;
     private List<Product> products = new ArrayList<>();
     private Towns destination;
+    private boolean isRouteRebuilt;
+    private int distanceTraveled;
     private final Random random = new Random();
 
     public Dealer() {
@@ -22,7 +24,7 @@ public class Dealer {
         this.movePoints = random.nextInt(5) + 1;
         this.money = random.nextInt(15000) + 10000;
         this.destination = Towns.values()[random.nextInt(6)];
-        this.destination.setDistanceToCity(random.nextInt(100) + 50);
+        this.isRouteRebuilt = false;
     }
     //----------------------Гетеры и сетеры---------------------------------------------
 
@@ -56,6 +58,13 @@ public class Dealer {
     public void setLoadCapacity(int loadCapacity) {
         this.loadCapacity = loadCapacity;
     }
+    public int getDistanceTraveled() {
+        return distanceTraveled;
+    }
+    public void setDistanceTraveled(int distanceTraveled) {
+        this.distanceTraveled = distanceTraveled;
+    }
+
 
     //---------------------Заполнение телеги продуктами-----------------------------------
     public void buyProducts(Store store){
@@ -93,6 +102,7 @@ public class Dealer {
     //----------------------Ход продавца---------------------------------------
     public void dealerMove(){
         System.out.println("Продавец прошел: " + this.movePoints + " км");
+        this.distanceTraveled += this.movePoints;
         this.destination.setDistanceToCity(this.destination.getDistanceToCity() - this.movePoints);
     }
 }

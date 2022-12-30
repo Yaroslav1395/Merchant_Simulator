@@ -9,7 +9,8 @@ public enum EventRealize {
     RIVER(5, new River()),
     ROGUES(6, new Rogues()),
     SMOOTH_ROAD(7, new SmoothRoad()),
-    TYPICAL_DAY(8, new TypicalDay());
+    TYPICAL_DAY(8, new TypicalDay()),
+    TAVERN_WITH_RUMORS(9, new TavernWithRumors());
 
     private final int eventId;
     private Eventable event;

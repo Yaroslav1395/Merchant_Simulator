@@ -36,21 +36,15 @@ public class Store {
     }
 
     //----------------Заполнение магазина товаром----------------------------
-    private Product[] makeProductArray(){
-        Product[] products = new Product[6];
-        products[0] = new Fabrics(10,3000);
-        products[1] = new Flour(50, 800);
-        products[2] = new Grain(50,400);
-        products[3] = new Meat(5, 3000);
-        products[4] = new Paint(1, 1000);
-        products[5] = new DriedFruits(10,500);
-        return products;
+    private  List<Product> makeProductArray(){
+        Products productsList = new Products();
+        return productsList.getProducts();
     }
 
     private Product returnOneProduct(){
-        Product[] products = makeProductArray();
+        List<Product> productList = makeProductArray();
         Random random = new Random();
-        Product randomProduct = products[random.nextInt(5)];
+        Product randomProduct = productList.get(random.nextInt(5));
         return  new Product(
                 randomProduct.getName(),
                 randomProduct.getWeight(),
