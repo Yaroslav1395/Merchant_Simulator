@@ -19,5 +19,6 @@ public class Normal extends State {
     @Override
     public void lowerTheQuality() {
         super.getProduct().setStateQuality(new SlightlyDamaged(super.getProduct()));
+        super.getProduct().setQuality(Quality.SLIGHTLY_DAMAGED);
     }
 }

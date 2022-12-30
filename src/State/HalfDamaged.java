@@ -17,5 +17,6 @@ public class HalfDamaged extends State {
     @Override
     public void lowerTheQuality() {
         super.getProduct().setStateQuality(new Bad(super.getProduct()));
+        super.getProduct().setQuality(Quality.BAD);
     }
 }

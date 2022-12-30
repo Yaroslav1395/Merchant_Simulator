@@ -16,5 +16,6 @@ public class Bad extends State{
     @Override
     public void lowerTheQuality() {
         super.getProduct().setStateQuality(new Trash(super.getProduct()));
+        super.getProduct().setQuality(Quality.TRASH);
     }
 }

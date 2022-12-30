@@ -6,6 +6,6 @@ public class SmoothRoad implements Eventable{
     @Override
     public void realizeEvent(Dealer dealer) {
         System.out.println("Ровная дорога. Скорость передвижения повышена");
-        dealer.setSpeed(dealer.getSpeed() + 2);
+        dealer.setMovePoints(dealer.getMovePoints() + 5);
     }
 }

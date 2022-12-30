@@ -23,6 +23,7 @@ public class Rogues implements Eventable{
             for (Product product: products) {
                 if(product.getStateQuality().equals(new Normal())){
                     dealer.getProducts().remove(product);
+                    dealer.setLoadCapacity(dealer.getLoadCapacity() + product.getWeight());
                     System.out.println("Забрали товар");
                     break;
                 }

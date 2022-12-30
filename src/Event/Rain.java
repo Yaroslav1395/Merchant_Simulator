@@ -8,8 +8,8 @@ public class Rain implements Eventable{
 
     @Override
     public void realizeEvent(Dealer dealer) {
-        System.out.println("Ровная дорога. Скорость передвижения повышена");
-        dealer.setSpeed(dealer.getSpeed() - 2);
+        System.out.println("Пошел дождь");
+        dealer.setMovePoints(Math.max(dealer.getMovePoints() - 2, 0));
         Random random = new Random();
         if(random.nextInt(3) + 1 == 3){
             System.out.println("Товар испортился");

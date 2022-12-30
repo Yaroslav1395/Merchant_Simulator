@@ -6,6 +6,6 @@ public class BrokenWheel implements Eventable{
     @Override
     public void realizeEvent(Dealer dealer) {
         System.out.println("Сломалось колесо. Простой");
-        dealer.setSpeed(0);
+        dealer.setMovePoints(0);
     }
 }

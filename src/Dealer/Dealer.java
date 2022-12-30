@@ -29,33 +29,32 @@ public class Dealer {
     public List<Product> getProducts() {
         return products;
     }
-
     public void setProducts(List<Product> products) {
         this.products = products;
     }
-
-    public int getSpeed() {
+    public int getMovePoints() {
         return movePoints;
     }
-
-    public void setSpeed(int speed) {
+    public void setMovePoints(int speed) {
         this.movePoints = speed;
     }
-
     public double getMoney() {
         return money;
     }
-
     public void setMoney(double money) {
         this.money = money;
     }
-
     public Towns getDestination() {
         return destination;
     }
-
     public void setDestination(Towns destination) {
         this.destination = destination;
+    }
+    public int getLoadCapacity() {
+        return loadCapacity;
+    }
+    public void setLoadCapacity(int loadCapacity) {
+        this.loadCapacity = loadCapacity;
     }
 
     //---------------------Заполнение телеги продуктами-----------------------------------
@@ -75,13 +74,25 @@ public class Dealer {
             }
         }
     }
+    //**********************Печать информации*******************************
     //----------------------Печать продуктов---------------------------------
-    public void printDealerProducts(){
-        System.out.println("Денег у продавца: " + this.money);
-        System.out.println("Вместимость телеги: " + this.loadCapacity);
+    private void printDealerProducts(){
         System.out.println("Список товаров продавца");
         for (Product product: this.products) {
             System.out.println(product);
         }
+    }
+    //----------------------Печать данных продавца----------------------------
+    public void printDealerInformation(){
+        System.out.println("---------------------------------------------------");
+        String format = "Деньги: %s Дистанция до пункта: %s\n";
+        System.out.printf(format, this.money, this.destination.getDistanceToCity());
+        printDealerProducts();
+        System.out.println("---------------------------------------------------");
+    }
+    //----------------------Ход продавца---------------------------------------
+    public void dealerMove(){
+        System.out.println("Продавец прошел: " + this.movePoints + " км");
+        this.destination.setDistanceToCity(this.destination.getDistanceToCity() - this.movePoints);
     }
 }
